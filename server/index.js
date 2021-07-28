@@ -16,7 +16,7 @@ app.use('/posts', postRoutes);
 
 app.get('/', (req, res) => {
 	res.send('Hello to CoLAB API');
-})
+});
 
 const PORT = process.env.PORT;
 
