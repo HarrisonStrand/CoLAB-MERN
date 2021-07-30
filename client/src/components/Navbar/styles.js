@@ -12,11 +12,11 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: 'rgba(0,0,0, 1)',
     textDecoration: 'none',
   },
   image: {
-    marginLeft: '15px',
+    marginLeft: '0px',
   },
   toolbar: {
     display: 'flex',

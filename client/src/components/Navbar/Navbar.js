@@ -3,7 +3,8 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import useStyles from './styles'
-import headervinyl from '../../img/headervinyl.png'
+// import headervinyl from '../../img/headervinyl.png'
+import CoLAB from '../../img/CoLAB.png'
 import decode from 'jwt-decode';
 
 const Navbar = () => {
@@ -35,10 +36,9 @@ const Navbar = () => {
 
 	return (
 		<AppBar className={classes.appBar} position='static' color='inherit'>
-			<div className={classes.brandContainer}>
-				<Typography component={Link} to='/' className={classes.heading} variant='h2' align='center'>C
-				<img src={headervinyl} alt='vinyl' height='45' />LAB</Typography>
-			</div>
+			<Link to='/' className={classes.brandContainer}>
+				<img className={classes.image} src={CoLAB} alt='logo' height='60' size='large' />
+			</Link>
 			<Toolbar className={classes.toolbar}>
 				{user ? (
 					<div className={classes.profile}>
