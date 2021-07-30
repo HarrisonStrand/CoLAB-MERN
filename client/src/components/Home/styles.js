@@ -9,6 +9,9 @@ export default makeStyles((theme) => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	pagination: {
+
+	},
 	heading: {
 		color: 'rgba(18, 108, 235, 92)',
 	},
