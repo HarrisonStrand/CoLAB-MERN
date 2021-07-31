@@ -26,10 +26,6 @@ const Home = () => {
 	const [search, setSearch] = useState('');
 	const [tags, setTags] = useState([]);
 
-	useEffect(() => {
-		dispatch(getPosts());
-	}, [currentId, dispatch]);
-
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
@@ -61,7 +57,7 @@ const Home = () => {
 								name='search' 
 								variant='outlined' 
 								label='Search Posts'
-								fullwidth
+								fullWidth
 								value={search}
 								onChange={(event) => setSearch(event.target.value)}
 								onKeyPress={handleKeyPress}
