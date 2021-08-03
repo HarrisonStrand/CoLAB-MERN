@@ -1,4 +1,4 @@
-import { DELETE, UPDATE, LIKE, FETCH_ALL, CREATE, FETCH_BY_SEARCH, START_LOADING, END_LOADING } from '../constants/actionTypes';
+import { DELETE, UPDATE, LIKE, FETCH_ALL, FETCH_POST, CREATE, FETCH_BY_SEARCH, START_LOADING, END_LOADING } from '../constants/actionTypes';
 
 export default (state = { isLoading: true, posts: [] }, action) => {
 	switch (action.type) {
@@ -17,6 +17,11 @@ export default (state = { isLoading: true, posts: [] }, action) => {
 			return {
 				...state,
 				posts: action.payload,
+			};
+		case FETCH_POST:
+			return {
+				...state,
+				post: action.payload,
 			};
 		case LIKE:
 			return {...state, posts: state.posts.map((post) => post._id === action.payload._id ? action.payload : post)}
