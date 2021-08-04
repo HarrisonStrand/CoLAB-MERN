@@ -4,8 +4,8 @@ export default makeStyles((theme) => ({
   media: {
     borderRadius: '20px',
     objectFit: 'cover',
-    width: '100%',
-    maxHeight: '600px',
+    width: '100%', // possible max size???
+    maxHeight: '600px', 
 
   },
   card: {

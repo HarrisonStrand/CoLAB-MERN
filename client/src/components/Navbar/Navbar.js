@@ -3,7 +3,6 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import useStyles from './styles'
-// import headervinyl from '../../img/headervinyl.png'
 import CoLAB from '../../img/CoLAB.png'
 import decode from 'jwt-decode';
 

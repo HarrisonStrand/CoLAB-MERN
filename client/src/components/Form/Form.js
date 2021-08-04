@@ -4,6 +4,7 @@ import FileBase from 'react-file-base64';
 import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
+import { useHistory } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
 	const [postData, setPostData] = useState({
@@ -13,25 +14,34 @@ const Form = ({ currentId, setCurrentId }) => {
 		selectedFile: ''
 	});
 
-	const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+	const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const user = JSON.parse(localStorage.getItem('profile'));
+	const history = useHistory();
+
+  const clear = () => {
+    setCurrentId(0);
+    setPostData({ title: '', message: '', tags: [], selectedFile: '' });
+  };
 
 	useEffect(() => {
+		// if (!post?.title) clear();
 		if(post) setPostData(post);
 	}, [post])
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
 
-		if(currentId) { //FIX
-			dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }))
-		} else {
-			dispatch(createPost({ ...postData, name: user?.result?.name}));
-		}
-		clear();
-	}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (currentId === 0) {
+      dispatch(createPost({ ...postData, name: user?.result?.name }, history));
+      clear();
+    } else {
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
+      clear();
+    }
+  };
 
 	if (!user?.result?.name) {
 		return (
@@ -41,16 +51,6 @@ const Form = ({ currentId, setCurrentId }) => {
 				</Typography>
 			</Paper>
 		)
-	}
-
-	const clear = () => {
-		setCurrentId(null);
-		setPostData({
-			title: '', 
-			message: '', 
-			tags: '', 
-			selectedFile: ''
-		});
 	}
 
 	return (

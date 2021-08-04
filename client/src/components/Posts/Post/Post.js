@@ -32,13 +32,15 @@ const Post = ({ post, setCurrentId }) => {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
 
-	const openPost = () => history.push(`/posts/${post._id}`);
+  const openPost = (e) => {
+    // dispatch(getPost(post._id, history));
 
+    history.push(`/posts/${post._id}`);
+  };
 
 	return (
-		<Card className={classes.card} style={{ wordWrap: 'break-word' }} raised elevation={6}>
-			<ButtonBase
-				className={classes.cardAction} onClick={openPost} >
+		<Card className={classes.card} raised elevation={6}>
+			<ButtonBase className={classes.cardAction} onClick={openPost} >
 				<CardMedia className={classes.media} image={post.selectedFile} title={post.title}/>
 				<div className={classes.overlay}>
 					<Typography variant='h6'>{post.name}</Typography>
@@ -50,7 +52,7 @@ const Post = ({ post, setCurrentId }) => {
 						style={{color: 'white'}} 
 						size='small' 
 						onClick={() => setCurrentId(post._id)}>
-						<MoreHorizIcon fontSize='medium' />
+						<MoreHorizIcon fontSize='default' />
 					</Button>
 				</div>
 				)}
