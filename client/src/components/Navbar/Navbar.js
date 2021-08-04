@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+
+import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles'
 import CoLAB from '../../img/CoLAB.png'
 import decode from 'jwt-decode';
@@ -16,7 +18,7 @@ const Navbar = () => {
 
 
 	const logout = () => {
-		dispatch({ type: 'LOGOUT' });
+		dispatch({ type: actionType.LOGOUT });
 		history.push('/');
 		setUser(null);
 	}
