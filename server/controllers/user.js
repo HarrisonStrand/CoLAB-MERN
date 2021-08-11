@@ -48,5 +48,33 @@ export const signup = async (req, res) => {
 	} catch (error) {
 		res.status(500).json({ message: 'Something went wrong'});
 	}
-
 }
+
+	// export const updateProfile = async (req, res) => {
+	// 	const user = await User.findById(req.user._id)
+
+	// 	try {
+	// 		if(user) {
+	// 			user.name = req.body.name || user.name;
+	// 			user.email = req.body.email || user.email;
+	// 			user.picture = req.body.picture || user.picture;
+	
+	// 			if(req.body.password) {
+	// 				user.password = req.body.password;
+	// 			}
+	
+	// 			const updatedProfile = await user.save();
+	
+	// 			res.status(200).json({ 
+	// 				_id: updatedProfile._id,
+	// 				name: updatedProfile.name,
+	// 				email: updatedProfile.email,
+	// 				pic: updatedProfile._id,
+	// 				token: generateToken(updatedProfile._id)
+	// 			})
+	// 		}
+			
+	// 	} catch (error) {
+	// 		res.status(404).json({ message: 'Something went wrong'});
+	// 	}
+	// };
