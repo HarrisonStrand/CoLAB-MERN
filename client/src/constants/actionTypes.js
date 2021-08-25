@@ -13,4 +13,6 @@ export const END_LOADING = 'END_LOADING';
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
 
-// export const EDIT_PROFILE = 'EDIT_PROFILE';
+export const USER_UPDATE_REQUEST = 'USER_UPDATE_REQUEST';
+export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
+export const USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
